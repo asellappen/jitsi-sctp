@@ -46,7 +46,10 @@
             </properties>
         </profile>
     </profiles>
-
+    <properties>
+      <maven.compiler.source>15</maven.compiler.source>
+      <maven.compiler.target>15</maven.compiler.target>
+     </properties>
     <modules>
         <module>usrsctp</module>
         <module>jniwrapper</module>
