@@ -20,6 +20,7 @@ arch:
   - ppc64le
 
 script:
+  - mvn package
   - mvn install
-  - mvn package -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
-  - mvn install -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
+ # - mvn package -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
+ # - mvn install -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
