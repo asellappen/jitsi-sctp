@@ -21,16 +21,8 @@ arch:
 before_script:
   -if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]; then  
      git clone https://github.com/sctplab/usrsctp.git; 
-     git clone https://github.com/jitsi/jitsi-sctp;
      cd jitsi-sctp/;
      cp -R ../usrsctp usrsctp/;
-     mvn package -DbuildSctp -DbuildNativeWrapper -DskipTests;
-     wrapper="$(dpkg -L jitsi-videobridge2|grep jniwrapper-native)";
-     sudo cp "${wrapper}" "${wrapper}.bak";
-     cp "${wrapper}" ./tohack.jar;
-     mkdir hacks;
-     cd hacks;
-     jar xf ../tohack.jar;
      cp ../jniwrapper/native/target/libjnisctp-linux-ppc64le.so \lib/linux/libjnisctp.so;
    fi 
 script:
