@@ -22,6 +22,7 @@ arch:
 script:
    - mvn package
    - mvn test
+   - cat  /home/travis/build/asellappen/jitsi-sctp/jniwrapper/jnilib/target/surefire-reports
  # - mvn install
  # - mvn package -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
  # - mvn install -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
