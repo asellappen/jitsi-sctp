@@ -18,19 +18,10 @@ dist: bionic
 arch:
   - amd64
   - ppc64le
-before_script:
-  -if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]; then  
-     git clone https://github.com/sctplab/usrsctp.git; 
-     cd jitsi-sctp/;
-     cp -R ../usrsctp usrsctp/;
-     cp ../jniwrapper/native/target/libjnisctp-linux-ppc64le.so \lib/linux/libjnisctp.so;
-   fi 
+
 script:
    - mvn package
    - mvn test
    - ls -ltr  /home/travis/build/asellappen/jitsi-sctp/jniwrapper/jnilib/target/surefire-reports
    - cat /home/travis/build/asellappen/jitsi-sctp/jniwrapper/jnilib/target/surefire-reports/SctpJniTest.txt
    - cat /home/travis/build/asellappen/jitsi-sctp/jniwrapper/jnilib/target/surefire-reports/TEST-SctpJniTest.xml
- # - mvn install
- # - mvn package -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
- # - mvn install -DbuildSctp -DbuildNativeWrapper -DdeployNewJnilib
