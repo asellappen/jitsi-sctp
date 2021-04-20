@@ -13,6 +13,11 @@
 sudo: required
 language: java
 
+jdk:
+   - openjdk11
+   - openjdk8
+   - openjdk16
+
 dist: bionic 
 
 arch:
